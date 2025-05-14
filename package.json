@@ -1,0 +1,22 @@
+{
+  "name": "BulletQuest_Backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Eduardo-Lima-Dev/BulletQuest_Backend.git",
+  "author": "Damiao Gomes <damiao28.contato@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.17",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  }
+}

@@ -42,7 +42,7 @@ cd bulletquest_backend
 
 2. **Instale as dependências**
 ```bash
-npm install
+yarn install
 ```
 
 3. **Configure as variáveis de ambiente**
@@ -58,7 +58,7 @@ npm run migrate
 
 5. **Inicie o servidor de desenvolvimento**
 ```bash
-npm run dev
+yarn dev
 ```
 
 O servidor estará disponível em `http://localhost:3000`.
@@ -66,12 +66,15 @@ O servidor estará disponível em `http://localhost:3000`.
 ## 📦 Estrutura do Projeto
 
 ```
-├── config/         # Configurações do projeto
-├── controllers/    # Controladores da aplicação
-├── middlewares/    # Middlewares personalizados
-├── models/         # Modelos do banco de dados
-├── routes/         # Rotas da API
-└── app.js          # Arquivo principal da aplicação
+src/
+├── config/            # Configuração (DB, .env, etc)
+├── controllers/       # Recebe req/res, chama services
+├── services/          # Lógica da aplicação (opcional)
+├── models/            # Definições Sequelize
+├── middlewares/       # Interceptadores (ex: auth, erros)
+├── routes/            # Define endpoints
+├── utils/             # Funções auxiliares
+└── index.ts           # Arquivo de bootstrap (express app)
 ```
 
 ## 🌲 Padrão de Branches
