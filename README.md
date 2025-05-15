@@ -184,7 +184,7 @@ git push origin Feature-Nova-Funcionalidade
 
 ## 📖 Documentação da API
 
-> A documentação detalhada da API estará disponível em `/api-docs` quando o servidor estiver em execução.
+> A documentação detalhada da API estará disponível em `/docs` quando o servidor estiver em execução.
 
 ## 🧪 Testes
 
