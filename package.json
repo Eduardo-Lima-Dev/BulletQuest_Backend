@@ -6,12 +6,18 @@
   "author": "Damiao Gomes <damiao28.contato@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7",
+    "sequelize-typescript": "^2.1.6",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.15.17",
