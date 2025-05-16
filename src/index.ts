@@ -16,7 +16,7 @@ async function startServer() {
         await sequelize.sync();
         console.log('Banco de dados sincronizado');
         app.listen(port, () => {
-            console.log(`Server run ning on: http://localhost:${port}/`);
+            console.log(`Servidor rodando http://localhost:${port}/`);
         });
     } catch (err) {
         console.log('Erro: ' + err);
