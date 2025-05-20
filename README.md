@@ -21,7 +21,7 @@ BulletQuest é uma plataforma de gerenciamento de tarefas gamificada que ajuda o
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Backend**: Node.js com Express
+- **Backend**: Node.js,Express,Sequelize,TypeScript
 - **Banco de Dados**: PostgreSQL
 - **Autenticação**: JWT
 - **Documentação API**: Swagger
@@ -30,7 +30,7 @@ BulletQuest é uma plataforma de gerenciamento de tarefas gamificada que ajuda o
 
 - Node.js (v14.x ou superior)
 - PostgreSQL (v12.x ou superior)
-- NPM ou Yarn
+- Yarn
 
 ## ⚙️ Instalação e Configuração
 
@@ -49,11 +49,13 @@ yarn install
 ```bash
 cp .env.example .env
 # Edite o arquivo .env com suas configurações
+DATABASE_URL=url
+JWT_SECRET=secret
 ```
 
 4. **Execute as migrações do banco de dados**
 ```bash
-npm run migrate
+...
 ```
 
 5. **Inicie o servidor de desenvolvimento**
@@ -69,7 +71,7 @@ O servidor estará disponível em `http://localhost:3000`.
 src/
 ├── config/            # Configuração (DB, .env, etc)
 ├── controllers/       # Recebe req/res, chama services
-├── services/          # Lógica da aplicação (opcional)
+├── services/          # Lógica da aplicação
 ├── models/            # Definições Sequelize
 ├── middlewares/       # Interceptadores (ex: auth, erros)
 ├── routes/            # Define endpoints
@@ -190,12 +192,12 @@ git push origin Feature-Nova-Funcionalidade
 
 ### Executar todos os testes
 ```bash
-npm test
+...
 ```
 
 ### Executar testes com relatório de cobertura
 ```bash
-npm run test:coverage
+...
 ```
 
 ## 🚀 Instruções de Implantação
