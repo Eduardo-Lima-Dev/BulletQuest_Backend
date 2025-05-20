@@ -4,7 +4,7 @@ const routerIndex = Router();
 
 /**
  * @swagger
- * /:
+ * api/:
  *   get:
  *     summary: Retorna se o servidor está rodando
  *     responses:
