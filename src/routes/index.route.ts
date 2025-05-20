@@ -12,7 +12,7 @@ const routerIndex = Router();
  *         description: Server running
  */
 routerIndex.get('/',(req,res)=>{
-    res.json({message:'Server running'});
+    res.json({message:'Servidor rodando'});
 });
 
 export default routerIndex;
