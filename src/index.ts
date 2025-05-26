@@ -5,8 +5,7 @@ import { swaggerSpec } from "./config/swagger";
 import routerIndex from "./routes/index.route";
 import routerAuth from "./routes/auth.routes";
 
-import sequelize from "./config/database/database";
-
+import { Request, Response, NextFunction } from "express";
 const port = 3000;
 const app = express();
 
@@ -16,16 +15,26 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec)); // Swagger rout
 app.use('/api',routerIndex);
 app.use('/api/auth',routerAuth);
 
+// Middleware para rotas não encontradas
+app.use((req: Request, res: Response) => {
+  res.status(404).json({
+    message: `Rota ${req.method} ${req.originalUrl} não encontrada`,
+  });
+});
+
+// Middleware para tratamento de erros gerais
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  console.error(err);
+  res.status(500).json({
+    message: "Erro interno no servidor",
+    error: err.message,
+  });
+});
+
 async function startServer() {
-    try {   
-        await sequelize.sync();
-        console.log('Banco de dados sincronizado com sucesso');
-        app.listen(port,()=>{
-            console.log(`Servidor rodando: http://localhost:${port}`);
-        });
-    } catch(err) {
-        console.log(err)
-    }
+    app.listen(port,()=>{
+        console.log(`Servidor rodando: http://localhost:${port}`);
+    });
 }
 
 startServer();

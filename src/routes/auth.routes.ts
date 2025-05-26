@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { authController } from "../controllers/auth.controlller";
 
+import { loginSchema, registerSchema } from "../schemas/user";
+import { validate } from "../middlewares/validate";
 const routerAuth = Router();
 
 /**
@@ -42,7 +44,7 @@ const routerAuth = Router();
  *         description: Requisição invalida (ex-> campos ausentes ou duplicados)
  *       
  */
-routerAuth.post('/login',authController.login);
+routerAuth.post('/login',validate(loginSchema),authController.login);
 
 /**
  * @swagger
@@ -97,6 +99,6 @@ routerAuth.post('/login',authController.login);
  *         description: Requisição inválida (ex-> campos ausentes ou duplicados)
  *       
  */
-routerAuth.post('/register',authController.register);
+routerAuth.post('/register',validate(registerSchema),authController.register);
 
 export default routerAuth;
