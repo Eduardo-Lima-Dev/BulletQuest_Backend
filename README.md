@@ -21,7 +21,7 @@ BulletQuest é uma plataforma de gerenciamento de tarefas gamificada que ajuda o
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Backend**: Node.js com Express
+- **Backend**: Node.js,Express,Sequelize,TypeScript
 - **Banco de Dados**: PostgreSQL
 - **Autenticação**: JWT
 - **Documentação API**: Swagger
@@ -30,7 +30,7 @@ BulletQuest é uma plataforma de gerenciamento de tarefas gamificada que ajuda o
 
 - Node.js (v14.x ou superior)
 - PostgreSQL (v12.x ou superior)
-- NPM ou Yarn
+- Yarn
 
 ## ⚙️ Instalação e Configuração
 
@@ -49,11 +49,13 @@ yarn install
 ```bash
 cp .env.example .env
 # Edite o arquivo .env com suas configurações
+DATABASE_URL=url
+JWT_SECRET=secret
 ```
 
 4. **Execute as migrações do banco de dados**
 ```bash
-npm run migrate
+...
 ```
 
 5. **Inicie o servidor de desenvolvimento**
@@ -69,7 +71,7 @@ O servidor estará disponível em `http://localhost:3000`.
 src/
 ├── config/            # Configuração (DB, .env, etc)
 ├── controllers/       # Recebe req/res, chama services
-├── services/          # Lógica da aplicação (opcional)
+├── services/          # Lógica da aplicação
 ├── models/            # Definições Sequelize
 ├── middlewares/       # Interceptadores (ex: auth, erros)
 ├── routes/            # Define endpoints
@@ -184,23 +186,54 @@ git push origin Feature-Nova-Funcionalidade
 
 ## 📖 Documentação da API
 
-> A documentação detalhada da API estará disponível em `/api-docs` quando o servidor estiver em execução.
+> A documentação detalhada da API estará disponível em `/docs` quando o servidor estiver em execução.
 
 ## 🧪 Testes
 
 ### Executar todos os testes
 ```bash
-npm test
+...
 ```
 
 ### Executar testes com relatório de cobertura
 ```bash
-npm run test:coverage
+...
 ```
 
 ## 🚀 Instruções de Implantação
 
 > Esta seção será preenchida durante o desenvolvimento.
+
+## 🐳 Docker
+
+### Requisitos
+- Docker
+- Docker Compose
+
+### Executando com Docker
+
+1. **Construa e inicie os containers**
+```bash
+docker-compose up --build
+```
+
+2. **Para executar em background**
+```bash
+docker-compose up -d
+```
+
+3. **Para parar os containers**
+```bash
+docker-compose down
+```
+
+4. **Para ver os logs**
+```bash
+docker-compose logs -f
+```
+
+### Variáveis de Ambiente
+As variáveis de ambiente já estão configuradas no `docker-compose.yml`. Se precisar alterar alguma configuração, você pode modificar diretamente no arquivo.
 
 ## 👥 Colaboradores
 

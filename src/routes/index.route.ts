@@ -4,7 +4,7 @@ const routerIndex = Router();
 
 /**
  * @swagger
- * /:
+ * api/:
  *   get:
  *     summary: Retorna se o servidor está rodando
  *     responses:
@@ -12,7 +12,7 @@ const routerIndex = Router();
  *         description: Server running
  */
 routerIndex.get('/',(req,res)=>{
-    res.json({message:'Server running'});
+    res.json({message:'Servidor rodando'});
 });
 
 export default routerIndex;
