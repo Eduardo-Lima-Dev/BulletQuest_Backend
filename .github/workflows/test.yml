@@ -1,0 +1,52 @@
+name: Testes Automáticos
+
+on:
+  push:
+    branches: [ '*' ]
+  pull_request:
+    branches: [ '*' ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: bulletquest_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'yarn'
+
+    - name: Instalar dependências
+      run: yarn install
+
+    - name: Configurar variáveis de ambiente
+      run: |
+        echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/bulletquest_test" >> .env
+        echo "JWT_SECRET=test_secret" >> .env
+
+    - name: Executar migrações do banco de dados
+      run: yarn migrate
+
+    - name: Executar testes
+      run: yarn test
+
+    - name: Executar testes de cobertura
+      run: yarn test:coverage 
