@@ -227,9 +227,20 @@ src/
 - Supertest para testes de API
 - Mocks para simulação de serviços externos
 
-## 🚀 Instruções de Implantação
+### Integração Contínua
+O projeto utiliza GitHub Actions para executar os testes automaticamente em cada push e pull request nas branches `main` e `develop`. O pipeline de CI inclui:
 
-> Esta seção será preenchida durante o desenvolvimento.
+- Configuração do ambiente Node.js
+- Configuração do banco de dados PostgreSQL para testes
+- Execução das migrações do banco de dados
+- Execução dos testes unitários
+- Geração do relatório de cobertura de testes
+
+Para verificar o status dos testes, acesse a aba "Actions" no repositório do GitHub.
+
+<!-- ## 🚀 Instruções de Implantação
+
+> Esta seção será preenchida durante o desenvolvimento. -->
 
 ## 🐳 Docker
 
