@@ -204,6 +204,37 @@ git push origin Feature-Nova-Funcionalidade
 
 > Esta seção será preenchida durante o desenvolvimento.
 
+## 🐳 Docker
+
+### Requisitos
+- Docker
+- Docker Compose
+
+### Executando com Docker
+
+1. **Construa e inicie os containers**
+```bash
+docker-compose up --build
+```
+
+2. **Para executar em background**
+```bash
+docker-compose up -d
+```
+
+3. **Para parar os containers**
+```bash
+docker-compose down
+```
+
+4. **Para ver os logs**
+```bash
+docker-compose logs -f
+```
+
+### Variáveis de Ambiente
+As variáveis de ambiente já estão configuradas no `docker-compose.yml`. Se precisar alterar alguma configuração, você pode modificar diretamente no arquivo.
+
 ## 👥 Colaboradores
 
 - **Damião** - Desenvolvedor Principal - [damiao28.contato@gmail.com](mailto:damiao28.contato@gmail.com)
