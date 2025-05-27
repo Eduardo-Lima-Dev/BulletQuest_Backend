@@ -7,7 +7,7 @@ import routerAuth from "./routes/auth.routes";
 
 import { Request, Response, NextFunction } from "express";
 const port = 3000;
-const app = express();
+export const app = express();
 
 app.use(express.json());
 
@@ -37,4 +37,7 @@ async function startServer() {
     });
 }
 
-startServer();
+// Só inicia o servidor se não estiver em ambiente de teste
+if (process.env.NODE_ENV !== 'test') {
+    startServer();
+}

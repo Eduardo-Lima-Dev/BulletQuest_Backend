@@ -192,13 +192,40 @@ git push origin Feature-Nova-Funcionalidade
 
 ### Executar todos os testes
 ```bash
-...
+yarn test
 ```
 
 ### Executar testes com relatório de cobertura
 ```bash
-...
+yarn test:coverage
 ```
+
+### Testes de Autenticação
+
+O projeto inclui testes automatizados para as rotas de autenticação, cobrindo os seguintes cenários:
+
+#### Registro de Usuário
+- Registro bem-sucedido de novo usuário
+- Validação de email duplicado
+- Validação de dados obrigatórios
+
+#### Login
+- Login bem-sucedido com credenciais corretas
+- Validação de credenciais incorretas
+- Geração de token JWT
+
+### Estrutura dos Testes
+```
+src/
+└── __tests__/
+    ├── auth.test.ts    # Testes de autenticação
+    └── ...            # Outros testes
+```
+
+### Tecnologias de Teste
+- Jest como framework de testes
+- Supertest para testes de API
+- Mocks para simulação de serviços externos
 
 ## 🚀 Instruções de Implantação
 
