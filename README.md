@@ -238,9 +238,9 @@ O projeto utiliza GitHub Actions para executar os testes automaticamente em cada
 
 Para verificar o status dos testes, acesse a aba "Actions" no repositório do GitHub.
 
-## 🚀 Instruções de Implantação
+<!-- ## 🚀 Instruções de Implantação
 
-> Esta seção será preenchida durante o desenvolvimento.
+> Esta seção será preenchida durante o desenvolvimento. -->
 
 ## 🐳 Docker
 

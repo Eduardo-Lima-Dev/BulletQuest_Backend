@@ -43,7 +43,7 @@ jobs:
         echo "JWT_SECRET=test_secret" >> .env
 
     - name: Executar migrações do banco de dados
-      run: yarn migrate
+      run: yarn test:setup
 
     - name: Executar testes
       run: yarn test
