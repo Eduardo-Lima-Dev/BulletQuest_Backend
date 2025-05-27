@@ -25,6 +25,7 @@
     "@types/supertest": "^6.0.3",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
+    "cross-env": "^7.0.3",
     "jest": "^30.0.0-beta.3",
     "prisma": "6.8.2",
     "supertest": "^7.1.1",
@@ -39,6 +40,6 @@
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
     "test:coverage": "NODE_ENV=test jest --coverage",
-    "test:setup": "NODE_ENV=test npx prisma migrate deploy"
+    "test:setup": "cross-env NODE_ENV=test npx prisma migrate deploy"
   }
 }
