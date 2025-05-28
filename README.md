@@ -21,7 +21,7 @@ BulletQuest é uma plataforma de gerenciamento de tarefas gamificada que ajuda o
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Backend**: Node.js,Express,Sequelize,TypeScript
+- **Backend**: Node.js,Express,Prisma,TypeScript,Bcrypt,Zod
 - **Banco de Dados**: PostgreSQL
 - **Autenticação**: JWT
 - **Documentação API**: Swagger
@@ -55,7 +55,7 @@ JWT_SECRET=secret
 
 4. **Execute as migrações do banco de dados**
 ```bash
-...
+npx prisma migrate dev
 ```
 
 5. **Inicie o servidor de desenvolvimento**
@@ -68,14 +68,16 @@ O servidor estará disponível em `http://localhost:3000`.
 ## 📦 Estrutura do Projeto
 
 ```
+prisma/
+├── migrations/        # Prisma Migrations
 src/
 ├── config/            # Configuração (DB, .env, etc)
 ├── controllers/       # Recebe req/res, chama services
 ├── services/          # Lógica da aplicação
-├── models/            # Definições Sequelize
 ├── middlewares/       # Interceptadores (ex: auth, erros)
 ├── routes/            # Define endpoints
 ├── utils/             # Funções auxiliares
+├── schemas/           # Schemas Prisma
 └── index.ts           # Arquivo de bootstrap (express app)
 ```
 
