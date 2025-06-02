@@ -16,3 +16,5 @@ routerCategory.put('/:id');
 
 //delete category by id
 routerCategory.delete('/:id');
+
+export default routerCategory;
