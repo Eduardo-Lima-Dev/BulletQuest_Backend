@@ -30,8 +30,19 @@ async function updateCategory(req: Request, res: Response) {
     }
 }
 
+async function deleteCategory(req: Request, res: Response) {
+    const {id} = req.body;
+    try {
+        await categoryService.deleteCategory(id);
+        res.sendStatus(204);
+    } catch (error) {
+        res.status(500).json({message: "Erro ao deletar categoria"})
+    }
+}
+
 export const categoryController = {
     getCategorys,
     createCategory,
-    updateCategory
+    updateCategory,
+    deleteCategory
 }

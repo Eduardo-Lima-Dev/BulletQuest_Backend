@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction} from "express";
 import prisma from "../config/prisma";
 
-export async function validateId(req: Request, res: Response, next: NextFunction ) {
+export async function category(req: Request, res: Response, next: NextFunction ) {
     const {id} = req.body;
     try {
         const validItem = await prisma.category.findUnique({
@@ -19,3 +19,6 @@ export async function validateId(req: Request, res: Response, next: NextFunction
     }
 }
 
+export const validateId = {
+    category
+}

@@ -16,3 +16,8 @@ export const updateCategorySchema = z.object({
     .min(3, "Titulo deve ter pelo menos 3 caracteres")
     .regex(/^[a-zA-Z\s]+$/, "Titulo não deve conter caracteres especiais ou números"),
 })
+
+export const deleteCategorySchema = z.object({
+  id: z
+    .number(),
+})
