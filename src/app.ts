@@ -6,6 +6,7 @@ import { swaggerSpec } from "./config/swagger";
 import routerIndex from "./routes/index.route";
 import routerAuth from "./routes/auth.routes";
 import routerCategory from "./routes/category.routes";
+import taskRouter from "./routes/task.routes";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec)); // Swagger rout
 app.use('/api',routerIndex);
 app.use('/api/auth',routerAuth);
 app.use('/api/category',routerCategory);
+app.use('/api/task',taskRouter);
 
 // Middleware para rotas não encontradas
 app.use((req: Request, res: Response) => {
