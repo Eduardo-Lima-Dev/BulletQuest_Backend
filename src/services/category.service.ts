@@ -8,6 +8,16 @@ async function getCategorys() {
     return categorys;
 }
 
+async function createCategory(title: string) {
+    const category = await prisma.category.create({
+        data: {
+            title: title
+        }
+    });
+    return category;
+}
+
 export const categoryService = {
     getCategorys,
+    createCategory
 }

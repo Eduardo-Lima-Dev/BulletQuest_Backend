@@ -10,6 +10,17 @@ async function getCategorys(req: Request, res: Response) {
     }
 }
 
+async function createCategory(req: Request, res: Response) {
+    const {title} = req.body;
+    try {
+        const category = await categoryService.createCategory(title);
+        res.status(201).json(category);
+    } catch (error) {
+        res.status(500).json({message:"Erro ao criar categorias"});
+    }
+}
+
 export const categoryController = {
     getCategorys,
+    createCategory
 }
