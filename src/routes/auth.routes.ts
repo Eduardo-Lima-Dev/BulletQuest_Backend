@@ -7,7 +7,7 @@ const routerAuth = Router();
 
 /**
  * @swagger
- * /api/auth/login:
+ * /auth/login:
  *   post:
  *     summary: Realiza login e retorna um token JWT
  *     tags:
@@ -48,7 +48,7 @@ routerAuth.post('/login',validate(loginSchema),authController.login);
 
 /**
  * @swagger
- * /api/auth/register:
+ * /auth/register:
  *   post:
  *     summary: Registra um novo usuário
  *     tags:
