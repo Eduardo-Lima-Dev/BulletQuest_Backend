@@ -16,11 +16,22 @@ async function createCategory(req: Request, res: Response) {
         const category = await categoryService.createCategory(title);
         res.status(201).json(category);
     } catch (error) {
-        res.status(500).json({message:"Erro ao criar categorias"});
+        res.status(500).json({message:"Erro ao criar categoria"});
+    }
+}
+
+async function updateCategory(req: Request, res: Response) {
+    const {id,title} = req.body;
+    try {
+        const updatedCategory = await categoryService.updateCategory(id,title);
+        res.status(200).json(updatedCategory);
+    } catch (error) {
+        res.status(500).json({message: "Erro ao atualizar categoria"})
     }
 }
 
 export const categoryController = {
     getCategorys,
-    createCategory
+    createCategory,
+    updateCategory
 }

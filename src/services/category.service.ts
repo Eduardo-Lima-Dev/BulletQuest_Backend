@@ -17,7 +17,20 @@ async function createCategory(title: string) {
     return category;
 }
 
+async function updateCategory(id: number, title: string) {
+    const category = await prisma.category.update({
+        where : {
+            id : id
+        },
+        data : {
+            title: title
+        }
+    });
+    return category;
+}
+
 export const categoryService = {
     getCategorys,
-    createCategory
+    createCategory,
+    updateCategory
 }
