@@ -30,7 +30,7 @@ async function updateTask(id:number,title: string, score: number,status: Status,
             title: title,
             description: description,
             score: score,
-            status: status, // modificar...
+            status: status,
             user: { connect: { id: userId } },
             category: { connect: { id: categoryId } }
         }

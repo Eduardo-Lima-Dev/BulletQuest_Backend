@@ -16,7 +16,7 @@ async function createTask(req: Request, res: Response) {
         const newTask = await taskService.createTask(title,score,userId,categoryId,description);
         res.status(201).json(newTask);
     } catch(error) {
-        res.status(500).json({message: "Erro ao criar tarefa"});
+        res.status(500).json({message: "Erro ao criar tarefa",error});
     }
 }
 
