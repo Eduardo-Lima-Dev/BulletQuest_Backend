@@ -6,7 +6,7 @@ async function getCategorys(req: Request, res: Response) {
         const categorys = await categoryService.getCategorys();
         res.status(200).json(categorys);
     } catch (error) {
-        res.status(500).json({message:"Erro ao buscar categorias"});
+        res.status(500).json({message:"Erro ao buscar categorias",error});
     }
 }
 
@@ -16,27 +16,28 @@ async function createCategory(req: Request, res: Response) {
         const category = await categoryService.createCategory(title);
         res.status(201).json(category);
     } catch (error) {
-        res.status(500).json({message:"Erro ao criar categoria"});
+        res.status(500).json({message:"Erro ao criar categoria",error});
     }
 }
 
 async function updateCategory(req: Request, res: Response) {
-    const {id,title} = req.body;
+    const categoryId = Number.parseInt(req.params.categoryId);
+    const {title} = req.body;
     try {
-        const updatedCategory = await categoryService.updateCategory(id,title);
+        const updatedCategory = await categoryService.updateCategory(categoryId,title);
         res.status(200).json(updatedCategory);
     } catch (error) {
-        res.status(500).json({message: "Erro ao atualizar categoria"})
+        res.status(500).json({message: "Erro ao atualizar categoria",error})
     }
 }
 
 async function deleteCategory(req: Request, res: Response) {
-    const {id} = req.body;
+    const categoryId = Number.parseInt(req.params.categoryId);
     try {
-        await categoryService.deleteCategory(id);
+        await categoryService.deleteCategory(categoryId);
         res.sendStatus(204);
     } catch (error) {
-        res.status(500).json({message: "Erro ao deletar categoria"})
+        res.status(500).json({message: "Erro ao deletar categoria",error})
     }
 }
 

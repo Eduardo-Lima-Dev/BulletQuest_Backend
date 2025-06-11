@@ -6,7 +6,7 @@ async function getTasks(req: Request, res: Response) {
         const tasks = await taskService.getTasks();
         res.status(200).json(tasks);
     } catch(error) {
-        res.status(500).json({message: "Erro ao buscar tarefa"});
+        res.status(500).json({message: "Erro ao buscar tarefa",error});
     }
 }
 
@@ -21,22 +21,23 @@ async function createTask(req: Request, res: Response) {
 }
 
 async function updateTask(req: Request, res: Response) {
-    const {id,title,score,status,userId,categoryId,description} = req.body;
+    const taskId = Number.parseInt(req.params.taskId);
+    const {title,score,status,userId,categoryId,description} = req.body;
     try {
-        const updatedTask = await taskService.updateTask(id,title,score,status,userId,categoryId,description);
+        const updatedTask = await taskService.updateTask(taskId,title,score,status,userId,categoryId,description);
         res.status(200).json(updatedTask);
     } catch (error) {
-        res.status(500).json({message: "Erro ao atualizar tarefa"});
+        res.status(500).json({message: "Erro ao atualizar tarefa",error});
     }
 }
 
 async function deleteTask(req:Request, res:Response) {
-    const {id} = req.body;
+    const taskId = Number.parseInt(req.params.taskId);
     try {   
-        await taskService.deleteTask(id);
+        await taskService.deleteTask(taskId);
         res.sendStatus(204);
     } catch (error){
-        res.status(500).json({message: "Error ao deletar tarefa"});
+        res.status(500).json({message: "Error ao deletar tarefa",error});
     }
 }
 
