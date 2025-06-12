@@ -12,7 +12,7 @@ async function login(req: Request, res: Response) {
             res.status(400).json({ message: error.message });
         } else {
         // Erro inesperado (ex: erro interno no servidor) 
-            res.status(500).json({ message: "Erro interno no servidor" });
+            res.status(500).json({ message: "Erro interno no servidor"});
         }
     }   
 }

@@ -21,4 +21,39 @@ model User {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // Relação 1:N com Task
+  tasks     Task[]
+}
+
+model Task {
+  id           Int       @id @default(autoincrement())
+  title        String    @unique
+  description  String?
+  createdAt    DateTime  @default(now())
+  score        Int
+  status       Status    @default(TODO)
+  
+  // Relação com Category
+  categoryId  Int
+  category    Category  @relation(fields: [categoryId], references: [id])
+
+  // Relação com User
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+}
+
+enum Status {
+  TODO
+  DOING
+  DONE
+}
+
+model Category {
+  id         Int      @id @default(autoincrement())
+  title      String   @unique
+  createdAt  DateTime @default(now())
+
+  // Relação 1:N com Task
+  tasks      Task[]
 }

@@ -8,8 +8,8 @@ export function validate(schema: ZodSchema) {
       const errors = result.error.format();
       res.status(400).json({ message: "Erro de validação", errors });
     } else {
-        req.body = result.data;
-        next();
+      req.body = result.data;
+      next();
     }
   };
 }

@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { authController } from "../controllers/auth.controlller";
-
 import { loginSchema, registerSchema } from "../schemas/user";
 import { validate } from "../middlewares/validate";
+
 const routerAuth = Router();
 
 /**
  * @swagger
- * /api/auth/login:
+ * /auth/login:
  *   post:
  *     summary: Realiza login e retorna um token JWT
  *     tags:
@@ -48,7 +48,7 @@ routerAuth.post('/login',validate(loginSchema),authController.login);
 
 /**
  * @swagger
- * /api/auth/register:
+ * /auth/register:
  *   post:
  *     summary: Registra um novo usuário
  *     tags:

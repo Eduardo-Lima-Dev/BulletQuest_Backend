@@ -15,5 +15,6 @@
   "target": "es2017",
   "moduleResolution": "node",
   "esModuleInterop": true,
-  "module": "commonjs"
+  "module": "commonjs",
+  "exclude": ["jest.config.ts"]
 }
